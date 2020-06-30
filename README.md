@@ -9,8 +9,7 @@
 
 ## Table of Contents
 * [Objective](#Objective)
-* [Scope of Work](#Scope of Work)
-* [Examples & Inspiration](#Examples & Inspiration)
+* [Scope](#Scope)
 * [Topic](#Topic)
 * [Technologies](#Technologies)
 * [Data](#Data)
@@ -32,7 +31,7 @@
 * Must include some level of user-driven interaction (e.g., menus, dropdowns, textbxtboxes). Your final visualization should ideally include at least three views. 
 
  
-# Scope of Work
+# Scope
 Day 1 (Thursday, June 25):
 * Between now and Saturday, you will need to start brainstorming topics with your group and researching potential data sets. Your focus should center around:
 	* Selecting a topic 	
@@ -52,7 +51,6 @@ Day 2 (Tuesday, June 30):
 Day 3 (Thursday, July 2):
 * Project Work
 
-# Examples & Inspiration
 
 
 # Topic
