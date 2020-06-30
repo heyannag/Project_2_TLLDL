@@ -9,16 +9,16 @@
 
 ## Table of Contents
 * [Objective](#Objective)
-* [Scope_of_Work] (#Scope of Work)
-* [Examples_&_Inspiration] (#Examples & Inspiration)
-* [Topic] (#Topic)
-* [Technologies] (#Technologies)
-* [Data] (#Data)
-* [Data_Conversion] (#Data Conversion)
+* [Scope_of_Work](#Scope of Work)
+* [Examples_&_Inspiration](#Examples & Inspiration)
+* [Topic](#Topic)
+* [Technologies](#Technologies)
+* [Data](#Data)
+* [Data_Conversion](#Data Conversion)
 
 
 # Objective 
-* Your visualization must include a Python Flask–powered RESTful API, HTML/CSS, JavaScript, and at least one database (SQL, MongoDB, SQLite, etc.). 
+* Create a visualization must include a Python Flask–powered RESTful API, HTML/CSS, JavaScript, and at least one database (SQL, MongoDB, SQLite, etc.). 
 
 ## Project Requirements
 
@@ -34,20 +34,20 @@
  
 # Scope of Work
 * Day 1 (Thursday, June 25):
-Between now and Saturday, you will need to start brainstorming topics with your group and researching potential data sets. Your focus should center around:
-Selecting a topic 	
-Finding a data set	
-Finding inspiration	
-“Sketching” your ideal visuals
-Creating a 1-page proposal
+* Between now and Saturday, you will need to start brainstorming topics with your group and researching potential data sets. Your focus should center around:
+	* Selecting a topic 	
+	* Finding a data set	
+	* Finding inspiration	
+	* “Sketching” your ideal visuals
+* Creating a 1-page proposal
 
 * Day 2 (Tuesday, June 30): 
-You will need to create a 1-page proposal that includes:
-A brief articulation of your chosen topic and rationale
-A link to your data set(s) and a screenshot of the metadata if it exists.	
-3 or 4 screenshots of relevant, “inspiring” visualizations that frame your creative fodder	
-A sketch of the final design 	
-A link to the primary GitHub repository you’ll be housing your work in
+* You will need to create a 1-page proposal that includes:
+	* A brief articulation of your chosen topic and rationale
+	* A link to your data set(s) and a screenshot of the metadata if it exists.	
+	* 3 or 4 screenshots of relevant, “inspiring” visualizations that frame your creative fodder	
+	* A sketch of the final design 	
+	* A link to the primary GitHub repository you’ll be housing your work in
 
 * Day 3 (Thursday, July 2):
 Project Work
@@ -57,8 +57,9 @@ Project Work
 
 # Topic
 "1033" Program Transfers Since Ferguson
-Analyzing the transfers made by the Defense Logistics Agency to local law enforcement since the protests in Ferguson, Missouri in August 2014.
-The DLA is a sub-agency of the Department of Defense; it provides equipment to local law enforcement agencies through its Law Enforcement Support Office. The program is commonly referred to as the "1033" program due to the statute that enabled it in 1997.
+Analyzing the transfers made by the Defense Logistics Agency to local law enforcement since the protests in Ferguson, Missouri in August 2014 in support of a BuzzFeed News story, published on June 4, 2020. See below for details.
+
+The DLA is a sub-agency of the Department of Defense; it provides equipment to local law enforcement agencies [through its Law Enforcement Support Office](https://www.dla.mil/DispositionServices/Offers/Reutilization/LawEnforcement/PublicInformation/). The program is commonly referred to as the ["1033" program](https://www.dla.mil/DispositionServices/Offers/Reutilization/LawEnforcement/ProgramFAQs.aspx) due to the statute that enabled it in 1997.
 
 # Technologies
 * Python3
@@ -75,7 +76,7 @@ The DLA is a sub-agency of the Department of Defense; it provides equipment to l
 _____
 
 # Data
-The data used in this analysis comes from the DLA's LESO Public Information page. The data/all.xlsx file contains all property transferred to participating agencies that was held by them as of March 31, 2020. It is updated quarterly.
+The data used in this analysis comes from the DLA's [LESO Public Information](https://www.dla.mil/DispositionServices/Offers/Reutilization/LawEnforcement/PublicInformation/) page. The [`data/all_original_data.xlsx`](data/all_original_data.xlsx) file contains all property transferred to participating agencies that was held by them as of March 31, 2020. It is updated quarterly.
 
 # Data Conversion
 The convert_data_to_csv.ipynb notebook takes the Excel file the DLA produces, reads each of the 52 sheets, and combines them into a single CSV with all the available data. The resulting CSV file is output to outputs/dla_1033_transfers.csv.
@@ -85,7 +86,7 @@ The convert_data_to_csv.ipynb notebook takes the Excel file the DLA produces, re
         '''
 
 # Analysis
-The analyze_transfers.ipynb takes the CSV data and analyzes all transfers where the *Ship Date* is after August 25, 2014, which marked the end of the first wave of protests in Ferguson. It walks through a few different pieces of analysis, including:
+The [`analyze_transfers.ipynb`](notebooks/analyze_transfers.ipynb) takes the CSV data and analyzes all transfers where the *Ship Date* is after August 25, 2014, which marked the end of the first wave of protests in Ferguson. This notebook contains some of the following analysis:
 * Loading the data
 
         '''
