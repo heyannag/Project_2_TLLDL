@@ -1,50 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>1033 Program Transfers August 2014 - March 2020</title>
-
-  <!-- Leaflet CSS & JS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
-  integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
-  crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
-  integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
-  crossorigin=""></script>
-
-  
-<link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Data & Visualization</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+        integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+        crossorigin="" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
 </head>
 
 <body>
 
-  <div id="map"></div>
-
-  <div class="showcase__section" id="bubble">
-    <div class="spacer --small"></div>
-    <div id="bubbleplots">
-      <div class="bubbleplot" data-num="0">
-        <div class="plot" id="plotdiv"></div>
-        <div class="control-row">
-          Country: <select class="countrydata">
-          </select>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 jumbotron text-center">
+                <h1>Dashboard: 1033 Program Transfers Since Ferguson, MO Riots started in August of 2014. </h1>
+                <p>The charts below represent various data that can be explored in more detail.</p>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-        
- <!-- <script src ="dropdown.js"></script> --> 
-
-  <!-- API key -->
-  <script type="text/javascript" src="config.js"></script>
-  
-  <script type="text/javascript" src="logic.js"></script>
+    <div class="row">
+        <div class="col-md-6">
+            <h5>Choropleth Map:</h5>
+            <canvas id="polarChart" width="400" height="250"></canvas>
+            <select id="selDataset1">
+                <option value="chart1">Fatal Encounters</option>
+                <option value="chart2">US Population</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <h5>Plotly Bar Chart:</h5>
+            <div id="bar">
+            </div>
+            <!-- Initialize with Ages bar graph -->
+            <select id="selDataset">
+                <option value="dataset6">Age</option>
+                <option value="dataset1">States</option>
+                <option value="dataset2">Years</option>
+                <option value="dataset3">Mental Illness</option>
+                <option value="dataset4">Genders</option>
+                <option value="dataset5">Cause of Death</option>
+            </select>
+        </div>
+    </div>
+    <h5>Map Displaying 1033 Program Transfers & Fatal Police Encounters</h5>
+    <div id="map"></div>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+    integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+    integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+    crossorigin=""></script>
+    
+    <script type="text/javascript" src="../static/js/config.js"></script>
+    <script type="text/javascript" src="../static/js/logic.js"></script>
+    <script type="text/javascript" src="../static/js/plots.js"></script>
+    <script type="text/javascript" src="../static/js/app.js"></script>
 </body>
+
 </html>
-
-
-  
-          
-  
-  
-  
