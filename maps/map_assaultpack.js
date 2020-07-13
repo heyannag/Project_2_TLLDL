@@ -1,9 +1,11 @@
 // Creating map object
-let myMap = L.map("map", {
+let myMapAP = L.map("map_assaultpack", {
   center: [36.1627, -86.7816],
   zoom: 4
 });
 
+// Load in  data
+var geoData = "../static/basegeo.json";
 
 // Adding tile layer
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -11,28 +13,19 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   maxZoom: 18,
   id: 'mapbox/light-v9',  
   accessToken: API_KEY
-}).addTo(myMap);
-
-// Load in  data
-var geoData = "../static/basegeo.json";
+}).addTo(myMapAP);
 
 var geojson;
-
 // Grab data with d3
 d3.json(geoData, function(data) {
-
   // Create a new choropleth layer
   geojson = L.choropleth(data, {
-
     // Define what  property in the features to use*****-this may be where we would add year
-    valueProperty: "per10000",
-
+    valueProperty: "assaulpack_per10000",
     // Set color scale
-    scale: ["#ffffb2", "#b10026"],
-
+    scale: ["#f7fbff", "#08306b"],
     // Number of breaks in step range
     steps: 10,
-
     // q for quartile, e for equidistant, k for k-means
     mode: "q",
     style: {
@@ -41,13 +34,26 @@ d3.json(geoData, function(data) {
       weight: .3,
       fillOpacity: 0.8
     },
-
+    
     // Binding a pop-up to each layer
     onEachFeature: function(feature, layer) {
-      layer.bindPopup("State : " + feature.properties.State + "<br>Number of transfers : " + feature.properties.per10000);
+      layer.bindPopup("State : " + feature.properties.State +
+      "<br>Number of 1033 transfers made from military surplus" + 
+      "<br>All transfers : " + feature.properties.total_transfers + 
+      "<br>Assault packs : " + feature.properties.assaultpack +
+      "<br>Magazine cartridges : " + feature.properties.magazine +
+      "<br>Infrared illuminators: " + feature.properties.infrared+
+      "<br>Mine resistant vehicles : " + feature.properties.mrv +
+      "<br>Combat helmets : " + feature.properties.combat_helmet
+      );
+      layer.on('mouseover', function (e) {
+        this.openPopup();
+      });
+      layer.on('mouseout', function (e) {
+          this.closePopup();
+    });
     }
-  }).addTo(myMap);
-
+  }).addTo(myMapAP);
   // Set up the legend
   var legend = L.control({ position: "bottomright" });
   legend.onAdd = function() {
@@ -57,7 +63,7 @@ d3.json(geoData, function(data) {
     var labels = [];
 
     // Add min & max
-    var legendInfo = "<h1>1033 Transfers<br>per 10000 residents</h1>" +
+    var legendInfo = "<h1>1033 Assault Pack Transfers<br>per 10,000 residents</h1>" +
       "<div class=\"labels\">" +
         "<div class=\"min\">" + limits[0]*100 + "</div>" +
         "<div class=\"max\">" + limits[limits.length - 1]*100
@@ -73,11 +79,7 @@ d3.json(geoData, function(data) {
     return div;
   };
 
-  legend.addTo(myMap);
+  legend.addTo(myMapAP);
       
 });
 
-
-  // var sliderControl = L.control.sliderControl({layer:layer, follow: 1});
-  //   map.addControl(sliderControl);
-  //   sliderControl.startSlider();
